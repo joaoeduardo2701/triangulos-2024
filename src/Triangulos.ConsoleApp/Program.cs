@@ -7,6 +7,10 @@
             char opcao = 'S';
             do
             {
+                Console.Clear();
+
+                Console.WriteLine("-- Verificação de triângulos --,");
+
                 Console.WriteLine("Digite o primeiro segmento: ");
                 Triangulos.x = double.Parse(Console.ReadLine());
 
@@ -21,8 +25,9 @@
                 if (Triangulos.TrianguloPodeSerCriado(Triangulos.x, Triangulos.y, Triangulos.z) == false)
                 {
                     Console.WriteLine("Por favor digite uma opção válida");
-                } 
-                else if ()
+                }
+
+                Triangulos.TipoTriangulo(Triangulos.x, Triangulos.y, Triangulos.z);
 
                 Console.WriteLine("Deseja continuar (S/N)");
                 opcao = char.Parse(Console.ReadLine());
@@ -49,19 +54,23 @@
             }
         }
 
-        public static string TrianguloEscaleno()
+        public static void TipoTriangulo(double x, double y, double z)
         {
+            Console.Write("Triângulo ");
 
-        }
-
-        public static string TrianguloIsosceles()
-        {
-
-        }
-
-        public static string TrianguloEquilatero()
-        {
-
+            if (x != y && y != z && z != x)
+            {
+                Console.WriteLine("Escaleno");
+            }
+            else if (x == y && y == z && z == x)
+            {
+                Console.WriteLine("Equilátero");
+            }
+            else if (x == y || y == z || z == x)
+            {
+                Console.WriteLine("Isósceles");
+            }
+            
         }
     }
 }
